@@ -5,37 +5,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Page Title</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style(1).css">
+    <script src="methods.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
-    <div class="header">
-        <img id="header-image" src="header.jpg" alt="Header Image">
-    </div>
+    <div x-data="{ showResultN: false; showResultP: false}">
+        <div class="header">
+            <img id="header-image" src="header.jpg" alt="Header Image">
+        </div>
+    
+        <div class="result-container">
+            <div class="result-header">
+                <div class="boundary-box">
+                    <p>Heart Failure DISEASE RESULTS:</p>
+                </div>
+            </div>
+            <hr class="result-divider">
+            <div class="result-box">
+                <div class="center-box">
+                    <div class="result-item" id="result-zero">
+                        0
+                        <div id="resultN"></div>
+                    </div>
+                </div>
+                <div class="result-box">
+                    <div class="result-item" id="result-onee">
+                        1
+                        <div id="resultP"></div>  
+                    </div>
+                </div>
+            </div>
+    
+            <hr class="result-divider">
+            <div class="result-interpretation" x-show="showResultN">
+                <h2>RESULT INTERPRETATION</h2>
+                <div class="grid-container">
+                    <div class="item1">
+                        <img src="./image/Heart-Rate.jpg" alt="Heart Image"
+                        style="height: 250px; width: 40em">
+                    </div>
+                    <div class="item1">
+                        <p>According to the Machine Learning Model's result (which is 0)
+                        This patient is negative for Heart Failure (meaning he/ she 
+                        does not have the disease). However according to the patients
+                        medical data  provided, he shows concerning levels of creatinine_phosphokinase
+                         and serum_creatinin, which might be suggestive of other heart conditions</p>
+                        <p>Below are some suggestive measures and natural herbs that can help to prevent 
+                            Heart Failure in future and help you live a healthier lifestyle
+                        </p> 
+                    </div>   
+                </div>
+            </div>
+            <div class="result-interpretation" x-show="showResultP">
+                <h2>RESULT INTERPRETATION</h2>
+                <div class="grid-container">
+                    <div class="item1">
+                        <img src="./image/Heart-Rate.jpg" alt="Heart Image"
+                        style="height: 250px; width: 30em">
+                    </div>
+                    <div class="item1">
+                        <p>
+                            According to the Machine Learning Model's result (which is 1)
+                            This patient is positive for Heart Failure (meaning he/ she 
+                            does have the disease). The patient must be treated accordingly
+                            as soon as possible. Most patients diagnosed with Heart Failure are
+                            highly likely to have CAD as well, it would be used to test the patient for
+                            CAD if it hasn't been done already
+                        </p>
+                        <p>
+                            Below are some suggestive measures and natural herbs that can be used to aid
+                            the rehabilitation process (without interfering with the Doctors prescribed
+                            medication)
+                        </p> 
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <script>
+            if(localStorage['modelResult'] == 1) {
+                document.getElementById("resultP").innerHTML = 
+                "Patient's result: " + localStorage['result'];
+            }
+            else {
+                document.getElementById("resultN").innerHTML = 
+                "Patient's result: " + localStorage['result'];
+            }
 
-    <div class="result-container">
-        <div class="result-header">
-            <div class="boundary-box">
-                <p>Heart Failure DISEASE RESULTS:</p>
-            </div>
-        </div>
-        <hr class="result-divider">
-        <div class="result-box">
-            <div class="center-box">
-                <div class="result-item" id="result-zero">0</div>
-            </div>
-            <div class="result-square">
-                <div class="result-item" id="result-one">1</div>
-            </div>
-        </div>
-
-        <hr class="result-divider">
-        <div class="result-interpretation">
-            <h2>RESULT INTERPRETATION</h2>
-            <p id="interpretation-text">ACCORDING TO ML model the patient has a result of 1, which suggests that he/she has Heart Failure. The Patient must be treated accordingly and be provided with mental support as she is at risk of succumbing to the disease in next 5 years or so.</p>
-        </div>
+            showResultP = localStorage['showResultP']
+            showResultN = localStorage['showResultN']
+        </script>
     </div>
-    <script src="script.js"></script>
 </body>
 
 </html>

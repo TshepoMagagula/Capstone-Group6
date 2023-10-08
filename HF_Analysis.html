@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css"></link>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
 
     <link
@@ -12,15 +11,17 @@
       rel="stylesheet"
     />
     <script src="//unpkg.com/alpinejs" defer></script>
-    <script src="attendance.api.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="style(1).css">
+    <script src="methods.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
   <div>
     <div class="header">
      <img src="./image/heart.jpg"/>
-     <h1>CORONARY ARTERY DISEASE PREDICTION AND DIAGNOSIS</h1>
+    </div>
+    <div class="boundary-box">
+     <p> HEART FAILURE PREDICTION AND DIAGNOSIS</p>
     </div>
     <div class="buttons">
         <a href="">RETRIEVE HISTORICAL DATA</a> 
@@ -28,22 +29,61 @@
     <div class="form">
         <label>Patient ID: </label><input type="text">
     </div>
+
+    <div id="overlay" onclick="off()">
+      <div id="text">
+          Analysing...
+          <div id="loader">  
+                  <p class="centre"></p>  
+          </div>
+          <button class="cancelBtn" onclick="cancel()">Cancel</button>
+      </div>
+    </div>
+
 <hr>
 <h2>INSERT NEW PARTIENT DATA</h2>
-<div class="box">
-    <div class="form">
-        <label>Age: </label><input type="text">
-        <label>Gender: </label><input type="text">
+<div class="box" x-data="heartBeatBackEnd">
+  <div class="form">
+      <label>Age: </label><input type="text" x-model="age_HF">
+      <label>Gender: </label><input type="text" x-model="sex_HF">
+      <label>anaemia_HF: </label><input type="text" x-mode="anaemia_HF">
     </div>
     <div class="form">
-        <label>Smoker: </label><input type="text">
-        <label>BP: </label><input type="text">
-    </div>
+      <label>creatinine_phosphokinase:  </label><input type="text" x-model="creatinine_phosphokinase_HF">
+      <label>diabetes:  </label><input type="text" x-model="diabetes_HF">
+      <label>ejection_fraction: </label><input type="text" x-model="ejection_fraction_HF">
+  </div>
+  <div class="form">
+      <label>High_Blood_Pressure: </label><input type="text" x-model="high_blood_pressure_HF">
+      <label>Platelets: </label><input type="text" x-model="platelets_HF">
+      <label>serum_creatinine: </label><input type="text" x-model="serum_creatinine_HF">
+  </div>
+  <div class="form">
+    <label>serum_sodium: </label><input type="text" x-model="serum_sodium_HF">
+    <label>smoking: </label><input type="text" x-model="smoking_HF">
+    <label>time: </label><input type="text" x-model="time_HF">
 </div>
 <br>
-<div class="buttons">
-    <a href="">ANALYSE DATA</a>
+<div class="buttons" x-data="heartBeatBackEnd" @click="testHF(); on()">
+  <a>ANALYSE DATA</a>
 </div>
+
+<script>
+  function on() {
+      document.getElementById ("overlay").style.display = "block";
+      window.setTimeout(function(){
+          window.location.href = "HF_result.html";
+      }, 10000);
+  }
+  
+  function off() {
+    document.getElementById("overlay").style.display = "none";
+  }
+
+  function cancel() {
+      window.location.href = "HF_Analysis.html";
+  }
+</script>
   </div>
   </body>
 </html>

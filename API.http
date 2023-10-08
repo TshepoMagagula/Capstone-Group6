@@ -1,0 +1,48 @@
+### Insert Patient General Details ###
+POST http://localhost:3011/api/insert-patient-general-details
+Content-Type: application/json
+
+{
+    "Name": "John",
+    "Surname": "Doe",
+    "Contact": "+123456789",
+    "Ethnic_group": "Some Ethnic Group"
+}
+
+### Insert CAD Test Data ###
+POST http://localhost:3011/api/add/userCAD
+Content-Type: application/json
+
+{
+    "Patient_ID": 1,  
+    "Age": 45,
+    "Gender": "Male",
+    "ChestPainType": "Typical Angina",
+    "RestingBP": 120,
+    "Cholesterol": 200,
+    "FastingBPS": 90,
+    "RestingECG": "Normal",
+    "MaxHR": 160,
+    "ExerciseAngina": "No",
+    "Oldpeak": 1.5,
+    "ST_Slope": "Upsloping"
+}
+
+### Insert HF Test Data ###
+POST http://localhost:3011//api/add/userHF
+Content-Type: application/json
+
+{
+    "Patient_ID": 1,  
+    "Age": 50,
+    "Gender": "Female",
+    "ChestPainType": "Atypical Angina",
+    "RestingBP": 130,
+    "Cholesterol": 210,
+    "FastingBPS": 85,
+    "RestingECG": "ST-T Wave Abnormal",
+    "MaxHR": 150,
+    "ExerciseAngina": "Yes",
+    "Oldpeak": 2.0,
+    "ST_Slope": "Flat"
+}

@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Page Title</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style(1).css">
+    <script src="methods.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div class="header">
         <img id="header-image" src="header.jpg" alt="Header Image">
     </div>
 
-    <div class="result-container">
+    <div class="result-container" x-data="heartBeatBackEnd">
         <div class="result-header">
             <div class="boundary-box">
                 <p>CORONARY ARTERY DISEASE RESULTS:</p>
@@ -19,13 +22,30 @@
         </div>
         <hr class="result-divider">
         <div class="result-box">
-            <div><div class="result-item" id="result-zero">0</div></div>
+            <div>
+                <div class="result-item" id="result-zero">
+                    0
+                    <div id="resultN"></div>
+                </div>
+            </div>
             <div class="result-square">
                 
-                <div class="result-item" id="result-one">1</div>
-                <div class="result-item" id="result-two">2</div>
-                <div class="result-item" id="result-three">3</div>
-                <div class="result-item" id="result-four">4</div>
+                <div class="result-item" id="result-one">
+                    1
+                    <div id="resultP1"></div>
+                </div>
+                <div class="result-item" id="result-two">
+                    2
+                    <div id="resultP2"></div>
+                </div>
+                <div class="result-item" id="result-three">
+                    3
+                    <div id="resultP3"></div>
+                </div>
+                <div class="result-item" id="result-four">
+                    4
+                    <div id="resultP4"></div>
+                </div>
             </div>
         </div>
         <hr class="result-divider">
@@ -34,6 +54,33 @@
             <p id="interpretation-text">According to the ML model, the patient has a result of 1, which suggests that he/she has CAD. The CAD is in its early stages and must be treated accordingly.</p>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        if(localStorage['modelResult'] == 1) {
+            document.getElementById("resultP1").innerHTML = 
+            "Patient's result: " + localStorage['result'];
+        }
+        else if(localStorage['modelResult'] == 2) {
+            document.getElementById("resultP2").innerHTML = 
+            "Patient's result: " + localStorage['result'];
+        }
+        else if(localStorage['modelResult'] == 3) {
+            document.getElementById("resultP3").innerHTML = 
+            "Patient's result: " + localStorage['result'];
+        }
+        else if(localStorage['modelResult'] == 4) {
+            document.getElementById("resultP4").innerHTML = 
+            "Patient's result: " + localStorage['result'];
+        }
+        else {
+            document.getElementById("resultN").innerHTML = 
+            "Patient's result: " + localStorage['result'];
+        }
+
+        showResultP1 = localStorage['showResultP1_CAD']
+        showResultP2 = localStorage['showResultP2_CAD']
+        showResultP3 = localStorage['showResultP3_CAD']
+        showResultP4 = localStorage['showResultP4_CAD']
+        showResultN = localStorage['showResultN']
+    </script>
 </body>
 </html>
