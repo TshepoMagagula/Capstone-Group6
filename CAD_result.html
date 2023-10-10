@@ -10,6 +10,10 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
+    <ul>
+        <li><a href="index-bootstrap.html">Logout</a></li>
+        <li><a href="index.html">Home</a></li>
+    </ul>
     <div class="header">
         <img id="header-image" src="header.jpg" alt="Header Image">
     </div>
@@ -25,7 +29,7 @@
             <div>
                 <div class="result-item" id="result-zero">
                     0
-                    <div id="resultN"></div>
+                    <div id="resultN_CAD"></div>
                 </div>
             </div>
             <div class="result-square">
@@ -49,9 +53,25 @@
             </div>
         </div>
         <hr class="result-divider">
-        <div class="result-interpretation">
+        <div class="result-interpretation" x-show="showResultP1_CAD">
             <h2>RESULT INTERPRETATION</h2>
             <p id="interpretation-text">According to the ML model, the patient has a result of 1, which suggests that he/she has CAD. The CAD is in its early stages and must be treated accordingly.</p>
+        </div>
+        <div class="result-interpretation" x-show="showResultP2_CAD">
+            <h2>RESULT INTERPRETATION</h2>
+            <p id="interpretation-text">According to the ML model, the patient has a result of 2, which suggests that he/she has CAD. The CAD is in its early stages and must be treated accordingly.</p>
+        </div>
+        <div class="result-interpretation" x-show="showResultP3_CAD">
+            <h2>RESULT INTERPRETATION</h2>
+            <p id="interpretation-text">According to the ML model, the patient has a result of 3, which suggests that he/she has CAD. The CAD is at an advanced stage and must be treated accordingly.</p>
+        </div>
+        <div class="result-interpretation" x-show="showResultP4_CAD">
+            <h2>RESULT INTERPRETATION</h2>
+            <p id="interpretation-text">According to the ML model, the patient has a result of 4, which suggests that he/she has CAD. The CAD is at an advanced stage and must be treated accordingly.</p>
+        </div>
+        <div class="result-interpretation" x-show="showResultN_CAD">
+            <h2>RESULT INTERPRETATION</h2>
+            <p id="interpretation-text">According to the ML model, the patient has a result of 0, which suggests that he/she does not have CAD.</p>
         </div>
     </div>
     <script>
@@ -72,7 +92,7 @@
             "Patient's result: " + localStorage['result'];
         }
         else {
-            document.getElementById("resultN").innerHTML = 
+            document.getElementById("resultN_CAD").innerHTML = 
             "Patient's result: " + localStorage['result'];
         }
 
@@ -80,7 +100,7 @@
         showResultP2 = localStorage['showResultP2_CAD']
         showResultP3 = localStorage['showResultP3_CAD']
         showResultP4 = localStorage['showResultP4_CAD']
-        showResultN = localStorage['showResultN']
+        showResultN_CAD = localStorage['showResultN_CAD']
     </script>
 </body>
 </html>

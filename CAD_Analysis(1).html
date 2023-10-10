@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <div class="header">
+            <img src="./image/heart.jpg" />
+        </div>
+        <div style="text-align: center;">
+            <h1>CORONARY ARTERY DISEASE PREDICTION AND DIAGNOSIS</h1>
+            <div class="buttons">
+                <a href="">RETRIEVE HISTORICAL DATA</a>
+            </div>
+            <div class="form">
+                <label>Patient ID: </label><input x-model="Patient_ID" type="text">
+            </div>
+        </div>
+
+        <div id="overlay" onclick="off()">
+            <div id="text">
+                Analysing...
+                <div id="loader">
+                    <p class="centre"></p>
+                </div>
+                <button class="cancelBtn" onclick="cancel()">Cancel</button>
+            </div>
+        </div>
+
+        <hr>
+        <h2>INSERT NEW PARTIENT DATA</h2>
+        <div class="grid-container">
+            <div class="item1">
+                <div class="formElement">
+                    <label style="margin-right: 20.5em;">Age: </label><input x-model="Age" id="user-age" type="text">
+                </div>
+                <div class="formElement">
+                    <label style="margin-right: 11.7em;">Resting Blood Pressure: </label><input x-model="RestingBP" id="RestingBP" type="text">
+                </div>
+                <div class="formElement">
+                    <label style="margin-right: 13.9em;">Serum Cholesterol: </label><input x-model="Cholesterol" id="Cholesterol" type="text">
+                </div>
+                <div class="formElement">
+                    <label style="margin-right: 9em;">Resting Electrographic Result: </label>
+                    <select name="ecgResults"  x-model="RestingECG" id="RestingECG">
+                        <option value="normal">
+                            Normal
+                        </option>
+                        <option value="havingST-TwaveAbnormal">
+                            Having ST-T Wave Abnormal
+                        </option>
+                        <option value="leftVentricularHypertrophy">
+                            Left Ventricular Hypertrophy
+                        </option>
+                    </select>
+                </div>
+                <div class="formElement">
+                    <label>ST depression induced by exercise relative to rest: </label><input x-model="STDepression" id="STDepression" type="text">
+                </div>
+                <div class="formElement">
+                    <label>Number of Major Vessels Colored by Fluoroscopy: </label>
+                    <select name="vesselsColoredByFluoroscopy" x-model="Fluoroscopy"  id="Fluoroscopy">
+                        <option value="0">
+                            0
+                        </option>
+                        <option value="1">
+                            1
+                        </option>
+                        <option value="2">
+                            2
+                        </option>
+                        <option value="3">
+                            3
+                        </option>
+                    </select>
+                </div>
+                <div class="formElement">
+                    <label style="margin-right: 16.7em;">Defect Type: </label>
+                    <select name="defectType" x-model="defectType" id="defectType">
+                        <option value="normal">
+                            Normal
+                        </option>
+                        <option value="Fixed">
+                            Fixed
+                        </option>
+                        <option value="reversibleDefect">
+                            Reversible Defect
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="item1">
+                <div class="formElement">
+                    <label style="margin-right: 14.4em;"> Gender: </label>
+                    <select name="sex" x-model="Gender" id="Gender">
+                        <option value="Male">
+                            Male
+                        </option>
+                        <option value="Female">
+                            Female
+                        </option>
+                    </select>
+                </div>
+                <div class="formElement">
+                    <label style="margin-right: 10.4em;">Chest Pain Type: </label>
+                    <select name="chestPainType" x-model="chestPainType"  id="chestPainType">
+                        <option value="typicalType1">
+                            Typical Type 1
+                        </option>
+                        <option value="typicalTypeAngina">
+                            Typical Type Angina
+                        </option>
+                        <option value="nonAnginaPain">
+                            Non-Angina Pain
+                        </option>
+                        <option value="asymptomatic">
+                            Asymptomatic
+                        </option>
+                    </select>
+                </div>
+                <div class="formElement">
+                    <label style="margin-right: 8.6em;"> Fasting Blood Sugar: </label><input x-model="FastingBPS" id="FastingBPS" type="text">
+                </div>
+                <div class="formElement">
+                    <label style="margin-right: 3.8em;">Maximum Heart Rate Achieved: </label><input x-model="MaxHR" id="MaxHR" type="text">
+                </div>
+                <div class="formElement">
+                    <label style="margin-right: 6.5em;">Exercise Induced Angina: </label>
+                    <select name="exercisedInducedAngina" x-model="ExerciseAngina" id="ExerciseAngina">
+                        <option value="yes">
+                            Yes
+                        </option>
+                        <option value="No">
+                            No
+                        </option>
+                    </select>
+                </div>
+                <div class="formElement">
+                    <label>Slope of the peak exercise ST segment: </label>
+                    <select name="slope" x-model="ST_Slope" id="ST_Slope">
+                        <option value="unsloping">
+                            Unsloping
+                        </option>
+                        <option value="flat">
+                            Flat
+                        </option>
+                        <option value="downsloping">
+                            Downsloping
+                        </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <a onclick="on()" href="on()">ANALYSE DATA</a>
+        </div>
+
+        <script>
+            const userAge = document.getElementById('user-age');
+            const RestingBP = document.getElementById('RestingBP');
+            const Gender=document.getElementById('Gender');
+            const Cholesterol=document.getElementById('Cholesterol');
+            const RestingECG = document.getElementById('RestingECG');
+            const Fluoroscopy = document.getElementById('Fluoroscopy');
+            const defectType = document.getElementById('defectType');
+            const chestPainType = document.getElementById('chestPainType');
+            const FastingBP = document.getElementById('FastingBP');
+            const MaxHR = document.getElementById('MaxHR');
+            const ExerciseAngina = document.getElementById('ExerciseAngina');
+            const ST_Slope = document.getElementById('ST_Slope');
+            const Oldpeak = document.getElementById('Oldpeak');
+            const Patient_ID =document.getElementById('Patient_ID')
+            
+
+            function on() {
+                console.log(userAge.value);
+                console.log(RestingBP.value);
+                console.log(Gender.value);
+                console.log(Cholesterol.value);
+                console.log(RestingECG.value);
+                console.log(Fluoroscopy.value);
+                console.log(defectType.value);
+                console.log(chestPainType.value);
+                console.log(FastingBPS.value);
+                console.log(MaxHR.value);
+                console.log(ExerciseAngina.value);
+                console.log(ST_Slope.value);
+                console.log(Oldpeak.value);
+                console.log(Patient_ID.value);
+                
+
+                document.getElementById("overlay").style.display = "block";
+                axios.post('http://localhost:3011/api/add/userCAD', {
+                    age: userAge.value,
+                    RestingBP:RestingBP.value,
+                    Gender:Gender.value,
+                    Cholesterol: Cholesterol.value,
+                    RestingECG: RestingECG.value,
+                    Fluoroscopy: Fluoroscopy.value,
+                    defectType: defectType.value,
+                    chestPainType: chestPainType.value,
+                    FastingBPS: FastingBPS.value,
+                    MaxHR: MaxHR.value,
+                    ExerciseAngina: ExerciseAngina.value,
+                    ST_Slope: ST_Slope.value,
+                    Oldpeak: Oldpeak.value,
+                    Patient_ID: Patient_ID.value,
+
+
+                })
+                window.setTimeout(function () {
+                    window.location.href = "CAD_result(1).html";
+                }, 10000);
+            }
+
+            function off() {
+                document.getElementById("overlay").style.display = "none";
+            }
+
+            function cancel() {
+                window.location.href = "CAD_Analysis.html";
+            }
+        </script>
+        <br>
+        <section class="footer">
+            Copyright © Group 6 2023
+        </section>
+    </div>
+</body>
+
+</html>

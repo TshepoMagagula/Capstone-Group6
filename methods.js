@@ -16,6 +16,7 @@ document.addEventListener("alpine:init", () => {
             ca_CAD: 0,
             thal_CAD: 0,
             result_CAD: 0,
+            modelResult_CAD: 0,
             age_HF: 0,
             sex_HF: 0,
             anaemia_HF: 0,
@@ -88,8 +89,8 @@ document.addEventListener("alpine:init", () => {
                             localStorage['showResultP4_CAD'] = this.showResultP4_CAD
                         }
                         else {
-                            this.showResultN = true
-                            localStorage['showResultP4_CAD'] = this.showResultP4_CAD
+                            this.showResultN_CAD = true
+                            localStorage['showResultN_CAD'] = this.showResultN_CAD
                         }
                         console.log(this.result_CAD)
 
@@ -115,15 +116,15 @@ document.addEventListener("alpine:init", () => {
                     })
                     .then(result => {
                         this.result_HF = result.data;
-                        localStorage['modelResult'] = this.result_HF.modelResult;
-                        localStorage['result'] = this.result_HF.result;
+                        localStorage['modelResult_HF'] = this.result_HF.modelResult;
+                        localStorage['result_HF'] = this.result_HF.result;
                         if(this.result_HF.modelResult == 1) {
-                            this.showResultP = true
-                            localStorage['showResultP'] = this.showResultP
+                            this.showResultP_HF = true
+                            localStorage['showResultP_HF'] = this.showResultP_HF
                         }
                         else {
-                            this.showResultN = true
-                            localStorage['showResultN'] = this.showResultN
+                            this.showResultN_HF = true
+                            localStorage['showResultN_HF'] = this.showResultN_HF
                         }
                         console.log(this.result_HF)
                     })
@@ -138,6 +139,46 @@ document.addEventListener("alpine:init", () => {
                 }
                 localStorage['occupation'] = this.occupation
                 window.location.href = "index.html";
+            },
+            
+            logout() {
+                this.age_CAD = 0
+                this.sex_CAD = 0
+                this.cp_CAD = 0
+                this.trestbps_CAD = 0
+                this.chol_CAD = 0
+                this.fbs_CAD = 0
+                this.restecg_CAD = 0
+                this.thalach_CAD = 0
+                this.exang_CAD = 0
+                this.oldpeak_CAD = 0.0
+                this.slope_CAD = 0
+                this.ca_CAD = 0
+                this.thal_CAD = 0
+                this.result_CAD = 0
+                this.age_HF = 0
+                this.sex_HF = 0
+                this.anaemia_HF = 0
+                this.creatinine_phosphokinase_HF = 0
+                this.diabetes_HF = 0
+                this.ejection_fraction_HF = 0
+                this.high_blood_pressure_HF = 0
+                this.platelets_HF = 0.0
+                this.serum_creatinine_HF = 0.0
+                this.serum_sodium_HF = 0.0
+                this.smoking_HF = 0
+                this.time_HF = 0
+                this.modelResult_HF = 0
+                this.result_HF = 0
+                this.showResultP_HF = false
+                this.showResultN_HF = false
+                this.showResultN_CAD = false
+                this.showResultP1_CAD = false
+                this.showResultP2_CAD = false
+                this.showResultP3_CAD = false
+                this.showResultP4_CAD = false
+                this.HF_modelShow = false
+                this.occupation = ''
             }
         }
     })

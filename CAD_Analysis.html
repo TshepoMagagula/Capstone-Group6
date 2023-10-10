@@ -8,7 +8,9 @@
 
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"/>
-    <link rel="stylesheet" href="style(1).css">
+      <link rel="stylesheet" href="style.css">
+    
+    
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="methods.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -32,10 +34,7 @@
             <div id="text">
                 Analysing...
                 <div id="loader">  
-                        <p class="centre" x-data="{ progress: 0 }"
-                        x-init="setInterval(function(){
-                            progress += 9;
-                        }, 1000);" x-text="progress + '%'"></p>  
+                        <p class="centre"></p>  
                 </div>
                 <button class="cancelBtn" onclick="cancel()">Cancel</button>
             </div>
@@ -165,11 +164,12 @@
                 </div>
             </div>   
         </div>
-        <div class="buttons" @click="testCAD(); on()">
-            ANALYSE DATA
+        <div>
+            <button class="buttons" @click="testCAD(); on()">
+                <a>ANALYSE DATA</a>
+            </button>
         </div>
 
-        <button @click="testCAD()">ANALYSE</button>
         <script>
             function on() {
                 document.getElementById("overlay").style.display = "block";

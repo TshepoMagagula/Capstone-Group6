@@ -43,7 +43,7 @@
     display: flex;
     justify-content: center;
     margin-left: 200px;
-    
+    background-color: #06b640;
     margin-bottom: 25px;
 }
 
@@ -427,7 +427,6 @@ body {
     display: flex;
     justify-content: center;
     margin-left: 200px;
-    
     margin-bottom: 25px;
 }
 
@@ -665,4 +664,30 @@ body {
     font-weight: bold;
     float: right;
     margin-top: 7.3em;
+}
+
+/* Navigation Bar */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+li {
+    float: right;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    border: #06b640 solid;
+    margin-right: 0.2em;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
 }
