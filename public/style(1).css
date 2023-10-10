@@ -691,3 +691,29 @@ li a {
 li a:hover {
     background-color: #111;
 }
+
+/* Heart Failure Results */
+.positive {
+    background-color: red;
+    height: 250px;
+}
+
+.one {
+    font-size: x-large;
+    float: right;
+}
+
+.negative {
+    background-color: green;
+}
+
+.zero {
+    font-size: x-large;
+    float: left;
+}
+
+.modelResult {
+    margin-top: 35%;
+    font-size: larger;
+    
+}

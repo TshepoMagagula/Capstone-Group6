@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Page Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style(1).css">
     <script src="methods.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -42,50 +44,71 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col">
+                    
+                </div>
+                <div class="col negative">
+                    <div class="zero">0</div>
+                    <div class="modelResult" id="resultN">htdt</div>
+                </div>
+                <div class="col positive">
+                    <div class="one">1</div>
+                    <div class="modelResult" x-model="resultP">yugea</div>
+                </div>
+                <div class="col">
+                    
+                </div>
+            </div>
     
             <hr class="result-divider">
-            <div class="result-interpretation" x-show="showResultN">
+            <div class="result-interpretation" x-show="">
                 <h2>RESULT INTERPRETATION</h2>
-                <div class="grid-container">
-                    <div class="item1">
+                <div class="row">
+                    <div class="col">
                         <img src="./image/Heart-Rate.jpg" alt="Heart Image"
-                        style="height: 250px; width: 40em">
+                        style="height: 250px; width: 30em">
                     </div>
-                    <div class="item1">
+                    <div class="col">
                         <p>According to the Machine Learning Model's result (which is 0)
                         This patient is negative for Heart Failure (meaning he/ she 
                         does not have the disease). However according to the patients
                         medical data  provided, he shows concerning levels of creatinine_phosphokinase
                          and serum_creatinin, which might be suggestive of other heart conditions</p>
-                        <p>Below are some suggestive measures and natural herbs that can help to prevent 
-                            Heart Failure in future and help you live a healthier lifestyle
+                        <p>
+                            Below are some suggestive measures and natural herbs that can be used to aid
+                            the rehabilitation process of the patient(without interfering with the Doctors prescribed
+                            treatment)
                         </p> 
                     </div>   
                 </div>
             </div>
-            <div class="result-interpretation" x-show="showResultP">
+            <hr class="result-divider">
+            <div class="result-interpretation" x-show="">
                 <h2>RESULT INTERPRETATION</h2>
-                <div class="grid-container">
-                    <div class="item1">
-                        <img src="./image/Heart-Rate.jpg" alt="Heart Image"
+                <div class="row">
+                    <div class="col">
+                        <img src="./image/Heart-Rate.jpg" alt="Heart Image" 
                         style="height: 250px; width: 30em">
                     </div>
-                    <div class="item1">
+                    <div class="col">
                         <p>
                             According to the Machine Learning Model's result (which is 1)
                             This patient is positive for Heart Failure (meaning he/ she 
                             does have the disease). The patient must be treated accordingly
                             as soon as possible. Most patients diagnosed with Heart Failure are
-                            highly likely to have CAD as well, it would be used to test the patient for
-                            CAD if it hasn't been done already
+                            highly likely to have CAD as well, it would be wise to test the patient for
+                            CAD as well using the system (if it hasn't been done already).
                         </p>
                         <p>
                             Below are some suggestive measures and natural herbs that can be used to aid
-                            the rehabilitation process (without interfering with the Doctors prescribed
-                            medication)
+                            the rehabilitation process of the patient(without interfering with the Doctors prescribed
+                            treatment)
                         </p> 
                     </div>   
                 </div>
+                <h2>Suggestions</h2>
             </div>
         </div>
         <script>
