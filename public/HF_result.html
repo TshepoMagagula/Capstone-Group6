@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div x-data="{ showResultN: false; showResultP: false}">
+    <div x-data="heartBeatBackEnd">
         <ul>
             <li><a href="index-bootstrap.html">Logout</a></li>
             <li><a href="index.html">Home</a></li>
@@ -30,45 +30,31 @@
                 </div>
             </div>
             <hr class="result-divider">
-            <div class="result-box">
-                <div class="center-box">
-                    <div id="result-zero">
-                        0
-                        <div id="resultN"></div>
-                    </div>   
-                </div>
-                <div class="result-box">
-                    <div class="result-item" id="result-onee">
-                        1
-                        <div id="resultP"></div>  
-                    </div>
-                </div>
-            </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col-2">
                     
                 </div>
                 <div class="col negative">
                     <div class="zero">0</div>
-                    <div class="modelResult" id="resultN">htdt</div>
+                    <div class="modelResult" id="resultN"></div>
                 </div>
                 <div class="col positive">
                     <div class="one">1</div>
-                    <div class="modelResult" x-model="resultP">yugea</div>
+                    <div class="modelResult" id="resultP"></div>
                 </div>
-                <div class="col">
+                <div class="col-3">
                     
                 </div>
             </div>
     
             <hr class="result-divider">
-            <div class="result-interpretation" x-show="">
+            <div class="result-interpretation" x-show="localStorage['modelResult_HF'] == 0">
                 <h2>RESULT INTERPRETATION</h2>
                 <div class="row">
                     <div class="col">
                         <img src="./image/Heart-Rate.jpg" alt="Heart Image"
-                        style="height: 250px; width: 30em">
+                        style="height: 250px; width: 30em" >
                     </div>
                     <div class="col">
                         <p>According to the Machine Learning Model's result (which is 0)
@@ -85,7 +71,7 @@
                 </div>
             </div>
             <hr class="result-divider">
-            <div class="result-interpretation" x-show="">
+            <div class="result-interpretation" x-show="localStorage['modelResult_HF'] == 1">
                 <h2>RESULT INTERPRETATION</h2>
                 <div class="row">
                     <div class="col">
@@ -103,7 +89,7 @@
                         </p>
                         <p>
                             Below are some suggestive measures and natural herbs that can be used to aid
-                            the rehabilitation process of the patient(without interfering with the Doctors prescribed
+                            the rehabilitation process of the patient (without interfering with the Doctors prescribed
                             treatment)
                         </p> 
                     </div>   
@@ -112,13 +98,13 @@
             </div>
         </div>
         <script>
-            if(localStorage['modelResult'] == 1) {
+            if(localStorage['modelResult_HF'] == 1) {
                 document.getElementById("resultP").innerHTML = 
-                "Patient's result: " + localStorage['result'];
+                "Patient's result: " + `${localStorage['result_HF']} (Has Heart Failure)`;
             }
             else {
                 document.getElementById("resultN").innerHTML = 
-                "Patient's result: " + localStorage['result'];
+                "Patient's result: " + localStorage['result_HF'];
             }
 
             showResultP = localStorage['showResultP']

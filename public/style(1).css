@@ -695,7 +695,6 @@ li a:hover {
 /* Heart Failure Results */
 .positive {
     background-color: red;
-    height: 250px;
 }
 
 .one {
@@ -705,6 +704,7 @@ li a:hover {
 
 .negative {
     background-color: green;
+    height: 200px;
 }
 
 .zero {
@@ -713,7 +713,32 @@ li a:hover {
 }
 
 .modelResult {
-    margin-top: 35%;
+    margin-top: 20%;
     font-size: larger;
-    
+    text-align: left; 
+}
+
+.p1 {
+    background-color: yellow;
+    height: 200px;
+}
+
+.p2 {
+    background-color: orange;
+    height: 200px;
+}
+
+.p3 { 
+    background-color: darkgoldenrod;
+    height: 200px;
+}
+
+.p4 {
+    background-color: red;
+    height: 200px;
+}
+
+.row {
+    margin-left: 1em;
+    margin-right: 1em;
 }

@@ -32,13 +32,13 @@ document.addEventListener("alpine:init", () => {
             modelResult_HF: 0,
             result_HF: 0,
             url: 'http://127.0.0.1:5000',
-            showResultP_HF: false,
+            /* showResultP_HF: false,
             showResultN_HF: false,
             showResultN_CAD: false,
             showResultP1_CAD: false,
             showResultP2_CAD: false,
             showResultP3_CAD: false,
-            showResultP4_CAD: false,
+            showResultP4_CAD: false, */
             HF_modelShow: false,
             occupation: '',
 
@@ -51,7 +51,7 @@ document.addEventListener("alpine:init", () => {
 
             testCAD() {
                 return axios
-                    .post(`/CADpredict`, 
+                    .post(`${this.url}/CADpredict`, 
                     {
                         "age" : this.age_CAD,
                         "sex" : this.sex_CAD,
@@ -70,9 +70,9 @@ document.addEventListener("alpine:init", () => {
                     })
                     .then(result => {
                         this.result_CAD = result.data;
-                        localStorage['modelResult'] = this.result_CAD.modelResult;
-                        localStorage['result'] = this.result_CAD.result;
-                        if(this.result_CAD.modelResult == 1) {
+                        localStorage['modelResult_CAD'] = this.result_CAD.modelResult;
+                        localStorage['result_CAD'] = this.result_CAD.result;
+                        /* if(this.result_CAD.modelResult == 1) {
                             this.showResultP1_CAD = true
                             localStorage['showResultP1_CAD'] = this.showResultP1_CAD
                         }
@@ -91,7 +91,7 @@ document.addEventListener("alpine:init", () => {
                         else {
                             this.showResultN_CAD = true
                             localStorage['showResultN_CAD'] = this.showResultN_CAD
-                        }
+                        } */
                         console.log(this.result_CAD)
 
                     })
@@ -99,7 +99,7 @@ document.addEventListener("alpine:init", () => {
 
             testHF() {
                 return axios
-                    .post(`/ml/HFpredict`, 
+                    .post(`${this.url}/ml/HFpredict`, 
                     {
                         "age" : this.age_HF,
                         "anaemia" : this.anaemia_HF,
@@ -118,14 +118,14 @@ document.addEventListener("alpine:init", () => {
                         this.result_HF = result.data;
                         localStorage['modelResult_HF'] = this.result_HF.modelResult;
                         localStorage['result_HF'] = this.result_HF.result;
-                        if(this.result_HF.modelResult == 1) {
+                        /* if(this.result_HF.modelResult == 1) {
                             this.showResultP_HF = true
                             localStorage['showResultP_HF'] = this.showResultP_HF
                         }
                         else {
                             this.showResultN_HF = true
                             localStorage['showResultN_HF'] = this.showResultN_HF
-                        }
+                        } */
                         console.log(this.result_HF)
                     })
             },
@@ -137,48 +137,60 @@ document.addEventListener("alpine:init", () => {
                 else {
                     this.HF_modelShow = false
                 }
-                localStorage['occupation'] = this.occupation
+                localStorage['occupation'] = this.occupation;
                 window.location.href = "index.html";
             },
             
             logout() {
-                this.age_CAD = 0
-                this.sex_CAD = 0
-                this.cp_CAD = 0
-                this.trestbps_CAD = 0
-                this.chol_CAD = 0
-                this.fbs_CAD = 0
-                this.restecg_CAD = 0
-                this.thalach_CAD = 0
-                this.exang_CAD = 0
-                this.oldpeak_CAD = 0.0
-                this.slope_CAD = 0
-                this.ca_CAD = 0
-                this.thal_CAD = 0
-                this.result_CAD = 0
-                this.age_HF = 0
-                this.sex_HF = 0
-                this.anaemia_HF = 0
-                this.creatinine_phosphokinase_HF = 0
-                this.diabetes_HF = 0
-                this.ejection_fraction_HF = 0
-                this.high_blood_pressure_HF = 0
-                this.platelets_HF = 0.0
-                this.serum_creatinine_HF = 0.0
-                this.serum_sodium_HF = 0.0
-                this.smoking_HF = 0
-                this.time_HF = 0
-                this.modelResult_HF = 0
-                this.result_HF = 0
-                this.showResultP_HF = false
-                this.showResultN_HF = false
-                this.showResultN_CAD = false
-                this.showResultP1_CAD = false
-                this.showResultP2_CAD = false
-                this.showResultP3_CAD = false
-                this.showResultP4_CAD = false
-                this.HF_modelShow = false
-                this.occupation = ''
+                this.age_CAD = 0;
+                this.sex_CAD = 0;
+                this.cp_CAD = 0;
+                this.trestbps_CAD = 0;
+                this.chol_CAD = 0;
+                this.fbs_CAD = 0;
+                this.restecg_CAD = 0;
+                this.thalach_CAD = 0;
+                this.exang_CAD = 0;
+                this.oldpeak_CAD = 0.0;
+                this.slope_CAD = 0;
+                this.ca_CAD = 0;
+                this.thal_CAD = 0;
+                this.result_CAD = 0;
+                this.age_HF = 0;
+                this.sex_HF = 0;
+                this.anaemia_HF = 0;
+                this.creatinine_phosphokinase_HF = 0;
+                this.diabetes_HF = 0;
+                this.ejection_fraction_HF = 0;
+                this.high_blood_pressure_HF = 0;
+                this.platelets_HF = 0.0;
+                this.serum_creatinine_HF = 0.0;
+                this.serum_sodium_HF = 0.0;
+                this.smoking_HF = 0;
+                this.time_HF = 0;
+                this.modelResult_HF = 0;
+                this.result_HF = 0;
+                /* this.showResultP_HF = false;
+                this.showResultN_HF = false;
+                this.showResultN_CAD = false;
+                this.showResultP1_CAD = false;
+                this.showResultP2_CAD = false;
+                this.showResultP3_CAD = false;
+                this.showResultP4_CAD = false; */
+                this.HF_modelShow = false;
+                this.occupation = '';
+                localStorage['modelResult_HF'] = '';
+                localStorage['result_HF'] = '';
+               /*  localStorage['showResultN_HF']= false;
+                localStorage['showResultP_HF']= false; */
+                localStorage['modelResult_CAD'] = '';
+                localStorage['result_CAD'] = '';
+                /* localStorage['showResultP1_CAD'] = false;
+                localStorage['showResultP2_CAD'] = false;
+                localStorage['showResultP3_CAD'] = false;
+                localStorage['showResultP4_CAD'] = false;
+                localStorage['showResultN_CAD'] = false; */
+                window.location.href = "index.html";
             }
         }
     })

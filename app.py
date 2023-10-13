@@ -20,7 +20,7 @@ def cadPredict():
         1: 'Early',
         2: 'Advanced',
         3: 'Severe',
-        4: 'Deadly'  
+        4: 'Fatal'  
     }
     
     # age = request.form.get('age')

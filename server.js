@@ -8,7 +8,7 @@ const PORT = 3011
 
 app.use(express.json());
 app.use(cors())
-
+app.use(express.static("public"))
 
 app.post('/api/add/userCAD', async (req, res) => {
     // const { age,sex } = req.body;
