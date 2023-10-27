@@ -11,6 +11,13 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use(cors());
 
+const db = await sqlite.open({
+    filename: './db.db',
+    driver: sqlite3.Database
+});
+
+await db.migrate();
+
 app.post('/api/post/userCAD', async (req, res) => {
     // const { age,sex } = req.body;
     console.log(req.body);
