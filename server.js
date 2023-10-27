@@ -24,6 +24,9 @@ app.post('/api/post/userCAD', async (req, res) => {
     console.log(req.params);
     console.log(req.query);
 
+
+
+
     //get the id from the user interface
     const Patient_ID = req.body.Patient_ID
     //with the id search patient historical data from database
@@ -49,8 +52,12 @@ app.post('/api/post/userCAD', async (req, res) => {
         res.json({
             error: "No data available for this patient"
         })
+
     }
+
 })
+
+
 
 app.get('/api/get/userCAD/:patientId', async (req, res) => {
     const { patientId } = req.params;
