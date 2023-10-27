@@ -6,6 +6,8 @@ const  db = await sqlite.open({
   driver:  sqlite3.Database
 });
 
+await db.migrate();
+
 export const addUserForCAD = async (user) => {
   const { Test_ID, Patient_ID, Age, Gender, ChestPainType, RestingBP, Cholesterol, FastingBPS, RestingECG, MaxHR, ExerciseAngina, Oldpeak, ST_Slope, Fluoroscopy, defectType  } = user;
   console.log(user);

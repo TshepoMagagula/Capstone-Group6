@@ -8,15 +8,8 @@ import { addUserForCAD, addUserForHF, getCADTestDataByPatientId, findCADTestData
 const app = express();
 
 app.use(express.json());
-app.use(express.static('public'))
-app.use(cors())
-
-const db = await sqlite.open({
-    filename: 'db.db',
-    driver: sqlite3.Database
-});
-
-await db.migrate();
+app.use(express.static('public'));
+app.use(cors());
 
 app.post('/api/post/userCAD', async (req, res) => {
     // const { age,sex } = req.body;
