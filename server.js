@@ -12,7 +12,7 @@ app.use(express.static('public'))
 app.use(cors())
 
 const db = await sqlite.open({
-    filename: './db.db',
+    filename: 'db.db',
     driver: sqlite3.Database
 });
 
