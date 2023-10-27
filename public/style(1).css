@@ -742,3 +742,22 @@ li a:hover {
     margin-left: 1em;
     margin-right: 1em;
 }
+
+/* Menu */
+.logoutBtn {
+    border: solid #06b640;
+    color: white;
+    background-color: black;
+    margin: 0.1em;
+    height: 3.2em;
+
+}
+
+.homeBtn {
+    border: solid #06b640;
+    color: white;
+    background-color: black;
+    margin: 0.1em;
+    height: 3.2em;
+
+}

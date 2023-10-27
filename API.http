@@ -25,11 +25,12 @@ Content-Type: application/json
     "MaxHR": 160,
     "ExerciseAngina": "No",
     "Oldpeak": 1.5,
-    "ST_Slope": "Upsloping"
+    "ST_Slope": "Upsloping",
+    "Fluoroscopy": "2"
 }
 
 ### Insert HF Test Data ###
-POST http://localhost:3011//api/add/userHF
+POST http://localhost:3011/api/add/userHF
 Content-Type: application/json
 
 {
@@ -44,5 +45,24 @@ Content-Type: application/json
     "MaxHR": 150,
     "ExerciseAngina": "Yes",
     "Oldpeak": 2.0,
-    "ST_Slope": "Flat"
+    "ST_Slope": "Flat",
+    "Fluoroscopy": "2",
+    "defectType":"Normal"
+    
+    
+}
+
+###Get historical patient data by ID 
+GET  http://localhost:3011/api/get/userCAD/:patientId
+Content-Type: application/json
+
+ {
+    
+ }
+
+POST http://localhost:3011/api/add/userCAD
+content-type: application/json
+
+{
+    "Patient_ID":"1",
 }

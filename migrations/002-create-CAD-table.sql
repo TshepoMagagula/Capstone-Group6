@@ -21,7 +21,3 @@ ADD Fluoroscopy VARCHAR(255);
 
 ALTER TABLE CAD_Test
 ADD defectType VARCHAR(255);
-
-
-ALTER TABLE CAD_Test
-ADD STDepression INT;

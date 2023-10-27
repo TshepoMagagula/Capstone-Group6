@@ -93,7 +93,7 @@ X_test
 
 """## Model Training"""
 
-svm_model = SVC(kernel='linear', C=1)
+svm_model = SVC(kernel='rbf', C=5)
 svm_model.fit(X_train, y_train)
 
 y_pred = svm_model.predict(X_test)

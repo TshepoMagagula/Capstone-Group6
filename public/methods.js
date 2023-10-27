@@ -51,7 +51,7 @@ document.addEventListener("alpine:init", () => {
 
             testCAD() {
                 return axios
-                    .post(`${this.url}/CADpredict`, 
+                    .post(`https://ml-api-3624.onrender.com/CADpredict`, 
                     {
                         "age" : this.age_CAD,
                         "sex" : this.sex_CAD,
@@ -99,7 +99,7 @@ document.addEventListener("alpine:init", () => {
 
             testHF() {
                 return axios
-                    .post(`${this.url}/ml/HFpredict`, 
+                    .post(`https://ml-api-3624.onrender.com/ml/HFpredict`, 
                     {
                         "age" : this.age_HF,
                         "anaemia" : this.anaemia_HF,
@@ -191,6 +191,42 @@ document.addEventListener("alpine:init", () => {
                 localStorage['showResultP4_CAD'] = false;
                 localStorage['showResultN_CAD'] = false; */
                 window.location.href = "index.html";
+            },
+
+            home() {
+                this.age_CAD = 0;
+                this.sex_CAD = 0;
+                this.cp_CAD = 0;
+                this.trestbps_CAD = 0;
+                this.chol_CAD = 0;
+                this.fbs_CAD = 0;
+                this.restecg_CAD = 0;
+                this.thalach_CAD = 0;
+                this.exang_CAD = 0;
+                this.oldpeak_CAD = 0.0;
+                this.slope_CAD = 0;
+                this.ca_CAD = 0;
+                this.thal_CAD = 0;
+                this.result_CAD = 0;
+                this.age_HF = 0;
+                this.sex_HF = 0;
+                this.anaemia_HF = 0;
+                this.creatinine_phosphokinase_HF = 0;
+                this.diabetes_HF = 0;
+                this.ejection_fraction_HF = 0;
+                this.high_blood_pressure_HF = 0;
+                this.platelets_HF = 0.0;
+                this.serum_creatinine_HF = 0.0;
+                this.serum_sodium_HF = 0.0;
+                this.smoking_HF = 0;
+                this.time_HF = 0;
+                this.modelResult_HF = 0;
+                this.result_HF = 0;
+                localStorage['modelResult_HF'] = '';
+                localStorage['result_HF'] = '';
+                localStorage['modelResult_CAD'] = '';
+                localStorage['result_CAD'] = '';
+                window.location.href = "home.html";
             }
         }
     })

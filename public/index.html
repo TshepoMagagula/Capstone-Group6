@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Company Landing Page</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style(1).css">
-    
 </head>
 <body>
     <header>
@@ -16,13 +15,32 @@
     
     <div class="welcome-text">
         <h1>Welcome</h1>
-        <p>Welcome to HeartBeat. HeartBeat is company dedicated to the wellness of the people of the world. Through Artificial Intelligence and Machine Learning HeartBeat seeks to assist in dealing with the fatal scarge of Heart Failure and Conronary Disease</p>
+        <p>Already a member? Login</p>
     </div>
-    <div class="buttons">
-        <h1> How can we Assist you today?</h1>
-        <a href="CAD_Analysis.html" class="button" id="cad-button">CAD MODEL</a>
-        <a href="HF_Analysis.html" class="button" id="heart-failure-button" x-show=" localStorage['occupation'] == Cardiologist">Heart Failure MODEL</a>
+    <div class="main">
+        <div class="form">
+            <label>Username: </label><input type="text"> <br>
+        </div>
+        <div class="form">
+            <label>Password: </label><input type="text">
+        </div>
+        <div class="form">
+            <label style="margin-right: 7em;">Occupation: </label>
+            <select name="occupatin" x-model="occupation" id="occupation">
+                <option value="Physician">
+                    Physician
+                </option>
+                <option value="Cardiologist">
+                    Cardiologist
+                </option>
+            </select>
+        </div>
+        <div class="buttons">
+            <a href="index.html">Login</a>
+        </div>
     </div>
-    <script src="script.js"></script>
+    <div class="welcome-text">
+        <p>Or Join our network of professionals <a href="HF_result.html">Register</a></p>
+    </div>
 </body>
 </html>

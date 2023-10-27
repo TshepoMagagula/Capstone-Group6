@@ -14,19 +14,82 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="methods.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="alpineSQL.js"></script>
   </head>
-  <body>
+  <body x-data="CAD">
     <div x-data="heartBeatBackEnd">
         <div class="header">
             <img src="./image/heart.jpg"/>
         </div>
         <div style="text-align: center;">
             <h1>CORONARY ARTERY DISEASE PREDICTION AND DIAGNOSIS</h1>
-            <div class="buttons">
-                <a href="">RETRIEVE HISTORICAL DATA</a> 
-            </div>
             <div class="form">
-                <label>Patient ID: </label><input type="text">
+                <label>Patient ID: </label><input x-model="Patient_ID" type="text">
+            </div>
+            
+            <div class="historical-patients" style="text-align: center;" x-show="Patient_ID !== ''" x-data="{findCADTestData:false}">
+                <button class="button" @click="[getPatientHistoricalData(),findCADTestData=!findCADTestData]">View Patient History</button>
+            
+                <div x-show="findCADTestData">
+                    <template x-for="patientData in historicalPatientData">
+                        <div x-init="findCADTestData(patientData.Patient_ID)"></div>
+                    </template>
+                    <div>
+                       <!-- <div x-cloak x-if="historicalPatientData.length === 0">
+                            <h1><span>No historical data available for this patient</span></h1>
+                        </div>-->
+                       
+                            <div>
+                                <div style="margin-top: 2em;">
+                                    <table class="patient-data center">
+                                        <thead>
+                                            <tr>
+                                                <th colspan="5">
+                                                    <h4>Patient ID: <span x-text="patientRecord.Patient_ID"></span></h4>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>Age</th>
+                                                <th>Gender</th>
+                                                <th>ChestPainType</th>
+                                                <th>RestingBP</th>
+                                                <th>Cholesterol</th>
+                                                <th>FastingBPS</th>
+                                                <th>RestingECG</th>
+                                                <th>MaxHR</th>
+                                                <th>ExerciseAngina</th>
+                                                <th>Oldpeak</th>
+                                                <th>ST_Slope</th>
+                                                <th>Fluoroscopy</th>
+                                                <th>defectType</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <template x-for="patientRecord in historicalPatientData">
+                                            <tr>
+                                                <td x-text="patientRecord.Age"></td>
+                                                <td x-text="patientRecord.Gender"></td>
+                                                <td x-text="patientRecord.ChestPainType"></td>
+                                                <td x-text="patientRecord.RestingBP"></td>
+                                                <td x-text="patientRecord.Cholesterol"></td>
+                                                <td x-text="patientRecord.FastingBPS"></td>
+                                                <td x-text="patientRecord.RestingECG"></td>
+                                                <td x-text="patientRecord.MaxHR"></td>
+                                                <td x-text="patientRecord.ExerciseAngina"></td>
+                                                <td x-text="patientRecord.Oldpeak"></td>
+                                                <td x-text="patientRecord.ST_Slope"></td>
+                                                <td x-text="patientRecord.Fluoroscopy"></td>
+                                                <td x-text="patientRecord.defectType"></td>
+                                            </tr>
+                                        </template>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        
+                    </div>
+                </div>
             </div>
         </div>
 

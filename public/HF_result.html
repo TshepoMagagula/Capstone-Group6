@@ -16,8 +16,8 @@
 <body>
     <div x-data="heartBeatBackEnd">
         <ul>
-            <li><a href="index-bootstrap.html">Logout</a></li>
-            <li><a href="index.html">Home</a></li>
+            <li><button class="logoutBtn" @click=" logout()">LOGOUT</button></li>
+            <li><button class="homeBtn" @click="home()">HOME</button></li>  
         </ul>
         <div class="header">
             <img id="header-image" src="header.jpg" alt="Header Image">

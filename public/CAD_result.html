@@ -11,16 +11,16 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
-<body>
+<body x-data="heartBeatBackEnd">
     <ul>
-        <li><a href="index-bootstrap.html">Logout</a></li>
-        <li><a href="index.html">Home</a></li>
+        <li><button class="logoutBtn" @click=" logout()">LOGOUT</button></li>
+        <li><button class="homeBtn" @click="home()">HOME</button></li>  
     </ul>
     <div class="header">
         <img id="header-image" src="header.jpg" alt="Header Image">
     </div>
 
-    <div class="result-container" x-data="heartBeatBackEnd">
+    <div class="result-container" >
         <div class="result-header">
             <div class="boundary-box">
                 <p>CORONARY ARTERY DISEASE RESULTS:</p>

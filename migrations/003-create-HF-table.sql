@@ -18,12 +18,3 @@ CREATE TABLE   HF_Test (
     Oldpeak FLOAT,
     ST_Slope VARCHAR(255)
 );
-
-ALTER TABLE HF_Test
-ADD Fluoroscopy VARCHAR(255);
-
-ALTER TABLE HF_Test
-ADD defectType VARCHAR(255);
-
-ALTER TABLE HF_Test
-ADD STDepression INT;
