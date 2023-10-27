@@ -1,6 +1,4 @@
--- Create the database
-CREATE DATABASE db;
-USE db;
+
 
 -- Create the Patient_General_Details table
 CREATE TABLE Patient_General_Details (
