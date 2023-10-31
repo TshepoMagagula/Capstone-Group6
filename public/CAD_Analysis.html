@@ -279,9 +279,7 @@
             const ST_Slope = document.getElementById('ST_Slope');
             const Oldpeak = document.getElementById('Oldpeak');
             const Patient_ID =document.getElementById('Patient_ID')
-
-            function on() {
-                document.getElementById("overlay").style.display = "block";
+		document.getElementById("overlay").style.display = "block";
 
                 console.log(userAge.value);
                 console.log(RestingBP.value);
@@ -316,6 +314,8 @@
                     Patient_ID:Patient_ID.value,
                 })
 
+            function on() {
+                
                 window.setTimeout(function(){
                     window.location.href = "CAD_result.html";
                 }, 10000);
