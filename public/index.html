@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style(1).css">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="methods.js"></script>
 </head>
 <body>
     <header>
@@ -35,12 +37,17 @@
                 </option>
             </select>
         </div>
-        <div class="buttons">
-            <a href="home.html">Login</a>
+        <div class="button" @click="login();">
+            Login
         </div>
     </div>
     <div class="welcome-text">
         <p>Or Join our network of professionals <a href="register.html">Register</a></p>
     </div>
+    <br>
+    <br>
+    <section class="footer">
+        Copyright © Group 6 2023
+    </section>
 </body>
 </html>

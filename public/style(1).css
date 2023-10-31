@@ -1,6 +1,6 @@
 .body {
-    margin: 0;
-    padding: 0;
+    margin: 1em;
+    padding: 1em;
     background-color: #000;
     color: white;
     font-family: Arial, sans-serif;
@@ -141,36 +141,6 @@ body {
     color: aliceblue;
 }
 
-#result-zero {
-    width: 5%;
-    padding: 106px;
-    background-color: green;
-}
-
-#result-one {
-    width: 30%;
-    padding: 50px;
-    background-color: yellow;
-}
-
-#result-two {
-    width: 30%;
-    padding: 50px;
-    background-color: darkgoldenrod;
-}
-
-#result-three {
-    width: 30%;
-    padding: 50px;
-    background-color: orange;
-}
-
-#result-four {
-    width: 30%;
-    padding: 50px;
-    background-color: red;
-}
-
 .result-interpretation {
     text-align: center;
 }
@@ -214,7 +184,7 @@ h1 {
 
 .button {
     display: inline-block;
-    padding: 15px 30px;
+    padding: 10px 15px;
     background-color: #06b640; 
     color: #fff;
     font-size: 18px;
@@ -748,8 +718,10 @@ li a:hover {
     border: solid #06b640;
     color: white;
     background-color: black;
-    margin: 0.1em;
-    height: 3.2em;
+    margin: 0.5em;
+    margin-left: 0.2em;
+    padding: 1em;
+    height: 4em;
 
 }
 
@@ -757,7 +729,16 @@ li a:hover {
     border: solid #06b640;
     color: white;
     background-color: black;
-    margin: 0.1em;
-    height: 3.2em;
+    margin: 0.5em;
+    margin-right: 0.1em;
+    padding: 1em;
+    height: 4em;
 
+}
+
+.footer {
+    margin: 1em;
+    padding: 1em;
+    border: #06b640 solid;
+    margin-bottom: 2em;
 }

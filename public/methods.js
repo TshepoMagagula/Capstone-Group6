@@ -50,7 +50,13 @@ document.addEventListener("alpine:init", () => {
             },
 
             testCAD() {
-                return axios
+                if(!this.age_CAD && !this.sex_CAD && !this.cp_CAD && !this.trestbps_CAD && 
+                    !this.chol_CAD && !this.fbs_CAD && !this.restecg_CAD && !this.thalach_CAD && 
+                    !this.exang_CAD && !this.oldpeak_CAD && !this.slope_CAD && !this.ca_CAD && !this.thal_CAD) {
+                        alert("Some important data is missing. Make sure all the input fields have values")
+                }
+                else {
+                    return axios
                     .post(`https://ml-api-3624.onrender.com/CADpredict`, 
                     {
                         "age" : this.age_CAD,
@@ -95,6 +101,8 @@ document.addEventListener("alpine:init", () => {
                         console.log(this.result_CAD)
 
                     })
+                }
+                
             },
 
             testHF() {
@@ -131,12 +139,7 @@ document.addEventListener("alpine:init", () => {
             },
 
             login() {
-                if (this.occupation == 'Cardiologist') {
-                    this.HF_modelShow = true
-                }
-                else {
-                    this.HF_modelShow = false
-                }
+                
                 localStorage['occupation'] = this.occupation;
                 window.location.href = "index.html";
             },

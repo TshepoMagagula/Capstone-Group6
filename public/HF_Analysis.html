@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>HF_Analysis</title>
 
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -14,24 +14,21 @@
     <link rel="stylesheet" href="style(1).css">
     <script src="methods.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="alpineSQL.js"></script>
   </head>
-  <body>
-  <div>
+  <body x-data="heartBeatBackEnd">
+    <ul>
+      <li><button class="logoutBtn" @click=" logout()">LOGOUT</button></li>
+      <li><button class="homeBtn" @click="home()">HOME</button></li>  
+    </ul>
     <div class="header">
      <img src="./image/heart.jpg"/>
     </div>
     <div class="boundary-box">
      <p> HEART FAILURE PREDICTION AND DIAGNOSIS</p>
     </div>
-    <div class="buttons">
-        <a href="">RETRIEVE HISTORICAL DATA</a> 
-    </div>
-    <div class="form">
-        <label>Patient ID: </label><input type="text">
-    </div>
-
     <div id="overlay" onclick="off()">
-      <div id="text">
+      <div id="text" style="text-align: left;">
           Analysing...
           <div id="loader">  
                   <p class="centre"></p>  
@@ -41,49 +38,129 @@
     </div>
 
 <hr>
-<h2>INSERT NEW PARTIENT DATA</h2>
-<div class="box" x-data="heartBeatBackEnd">
-  <div class="form">
-      <label>Age: </label><input type="text" x-model="age_HF">
-      <label>Gender: </label><input type="text" x-model="sex_HF">
-      <label>anaemia_HF: </label><input type="text" x-mode="anaemia_HF">
+<h2>INSERT NEW PATIENT TEST DATA</h2>
+<hr>
+<div class="main" x-data="heartBeatBackEnd">
+  <div class="grid-container">
+    <div class="item1">
+        <div class="formElement">
+            <label style="margin-right: 20.5em;">Age: </label><input x-model="age_HF" id="user-age" type="text">
+        </div>
+        <div class="formElement">
+            <label style="margin-right: 23em;">Anaemia: </label>
+            <select name="anaemia"  x-model="anaemia_HF" x-model="" id="RestingECG">
+              <option value="">
+                  Select Option
+              </option>
+              <option value="1">
+                  Yes
+              </option>
+              <option value="0">
+                  No
+              </option>
+            </select>
+        </div>
+        <div class="formElement">
+            <label style="margin-right: 10.5em;">Creatinine_Phosphokinase: </label><input x-model="creatinine_phosphokinase_HF" x-model="Cholesterol" id="Cholesterol" type="text">
+        </div>
+        <div class="formElement">
+            <label style="margin-right: 23em;">Diabetes: </label>
+            <select name="diabetes" x-model="diabetes_HF" x-model="RestingECG" id="RestingECG">
+                <option value="">
+                    Select Option
+                </option>
+                <option value="1">
+                    Yes
+                </option>
+                <option value="0">
+                    No
+                </option>
+            </select>
+        </div>
+        <div class="formElement">
+            <label style="margin-right: 14.7em;">Ejection_Fraction: </label><input x-model="ejection_fraction_HF" x-model="STDepression" id="STDepression" type="text">
+        </div>
+        <div class="formElement">
+            <label style="margin-right: 17.3em;">High_Blood_Pressure: </label>
+            <select name="highBloodPressure" x-model="high_blood_pressure_HF" x-model="Fluoroscopy"  id="Fluoroscopy">
+                <option value="">
+                  Select Option
+                </option>
+                <option value="1">
+                    Yes
+                </option>
+                <option value="0">
+                    No
+                </option>
+            </select>
+        </div>
     </div>
-    <div class="form">
-      <label>creatinine_phosphokinase:  </label><input type="text" x-model="creatinine_phosphokinase_HF">
-      <label>diabetes:  </label><input type="text" x-model="diabetes_HF">
-      <label>ejection_fraction: </label><input type="text" x-model="ejection_fraction_HF">
+    <div class="item1">
+      <div class="formElement">
+        <label style="margin-right: 23.8em;"> Sex: </label>
+        <select name="sex" x-model="sex_HF" id="Gender">
+          <option value="">
+            Select Option
+          </option>  
+          <option value="1">
+                Male
+            </option>
+            <option value="0">
+                Female
+            </option>
+        </select>
+    </div>
+      <div class="formElement">
+        <label style="margin-right: 17em;">Platelets: </label><input  x-model="platelets_HF" x-model="" id="platelets" type="text">
+    </div>
+        <div class="formElement">
+            <label style="margin-right: 13.2em;"> Serum_Creatinine:</label><input x-model="serum_creatinine_HF" x-model="" id="serum_creatinine_HF" type="text">
+        </div>
+        <div class="formElement">
+            <label style="margin-right: 14.2em;">Serum_Sodium:  </label><input x-model="serum_sodium_HF" x-model="" id="serum_sodium_HF" type="text">
+        </div>
+        <div class="formElement">
+            <label style="margin-right: 21.8em;">Smoking:</label>
+            <select name="smoking" x-model="smoking_HF" x-model=""  id="smoking">
+              <option value="">
+                  Select Option
+              </option>
+              <option value="1">
+                  Yes
+              </option>
+              <option value="0">
+                  No
+              </option>
+          </select>
+        </div>
+        <div class="formElement">
+            <label>Time (Period of time living with disease in days): </label><input x-model="time_HF" x-model="" id="time" type="text">
+        </div>
+    </div>
   </div>
-  <div class="form">
-      <label>High_Blood_Pressure: </label><input type="text" x-model="high_blood_pressure_HF">
-      <label>Platelets: </label><input type="text" x-model="platelets_HF">
-      <label>serum_creatinine: </label><input type="text" x-model="serum_creatinine_HF">
+  <div class="button" @click="testHF(); on()">
+    ANALYSE DATA
   </div>
-  <div class="form">
-    <label>serum_sodium: </label><input type="text" x-model="serum_sodium_HF">
-    <label>smoking: </label><input type="text" x-model="smoking_HF">
-    <label>time: </label><input type="text" x-model="time_HF">
-</div>
-<br>
-<div class="buttons" @click="testHF(); on()">
-  ANALYSE DATA
-</div>
+  <br>
+  <section class="footer">
+    Copyright © Group 6 2023
+  </section>
+  <script>
+    function on() {
+        document.getElementById ("overlay").style.display = "block";
+        window.setTimeout(function(){
+            window.location.href = "HF_result.html";
+        }, 10000);
+    }
+    
+    function off() {
+      document.getElementById("overlay").style.display = "none";
+    }
 
-<script>
-  function on() {
-      document.getElementById ("overlay").style.display = "block";
-      window.setTimeout(function(){
-          window.location.href = "HF_result.html";
-      }, 10000);
-  }
-  
-  function off() {
-    document.getElementById("overlay").style.display = "none";
-  }
-
-  function cancel() {
-      window.location.href = "HF_Analysis.html";
-  }
-</script>
-  </div>
+    function cancel() {
+        window.location.href = "HF_Analysis.html";
+    }
+  </script>
+</div>
   </body>
 </html>

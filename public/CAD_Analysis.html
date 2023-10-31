@@ -8,7 +8,7 @@
 
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"/>
-      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="style(1).css">
     
     
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -18,11 +18,20 @@
   </head>
   <body x-data="CAD">
     <div x-data="heartBeatBackEnd">
+        <ul>
+            <li><button class="logoutBtn" @click=" logout()">LOGOUT</button></li>
+            <li><button class="homeBtn" @click="home()">HOME</button></li>  
+        </ul>
         <div class="header">
             <img src="./image/heart.jpg"/>
         </div>
         <div style="text-align: center;">
-            <h1>CORONARY ARTERY DISEASE PREDICTION AND DIAGNOSIS</h1>
+            <div class="boundary-box">
+                <p>CORONARY ARTERY DISEASE PREDICTION AND DIAGNOSIS</p>
+            </div>
+            <hr>
+            <h2>RETRIEVE PATIENT'S HISTORICAL TEST DATA</h2>
+            <hr>
             <div class="form">
                 <label>Patient ID: </label><input x-model="Patient_ID" type="text">
             </div>
@@ -49,8 +58,8 @@
                                                 </th>
                                             </tr>
                                             <tr>
-                                                <th>Age</th>
-                                                <th>Gender</th>
+                                                <!-- <th>Age</th>
+                                                <th>Gender</th> -->
                                                 <th>ChestPainType</th>
                                                 <th>RestingBP</th>
                                                 <th>Cholesterol</th>
@@ -68,8 +77,8 @@
                                         <tbody>
                                             <template x-for="patientRecord in historicalPatientData">
                                             <tr>
-                                                <td x-text="patientRecord.Age"></td>
-                                                <td x-text="patientRecord.Gender"></td>
+                                               <!--  <td x-text="patientRecord.Age"></td>
+                                                <td x-text="patientRecord.Gender"></td> -->
                                                 <td x-text="patientRecord.ChestPainType"></td>
                                                 <td x-text="patientRecord.RestingBP"></td>
                                                 <td x-text="patientRecord.Cholesterol"></td>
@@ -104,21 +113,28 @@
         </div>
         
         <hr>
-        <h2>INSERT NEW PARTIENT DATA</h2>
+        <h2>INSERT NEW PATIENT TEST DATA</h2>
+        <hr>
         <div class="grid-container">
             <div class="item1">
                 <div class="formElement">
-                    <label style="margin-right: 20.5em;">Age: </label><input type="text" x-model="age_CAD">
+                    <label style="margin-right: 13.4em;">Patient_ID_Number: </label><input x-model="Patient_ID" id="Patient_ID" type="text" placeholder="1">
                 </div>
                 <div class="formElement">
-                    <label style="margin-right: 11.7em;">Resting Blood Pressure: </label><input type="text" x-model="trestbps_CAD">
+                    <label style="margin-right: 20.5em;">Age: </label><input type="text" x-model="age_CAD" x-model="Age" id="user-age" placeholder="e.g 43">
                 </div>
                 <div class="formElement">
-                    <label style="margin-right: 13.9em;">Serum Cholesterol: </label><input type="text" x-model="chol_CAD">
+                    <label style="margin-right: 11.7em;">Resting Blood Pressure: </label><input type="text" x-model="trestbps_CAD" x-model="RestingBP" id="RestingBP" placeholder="e.g 123">
                 </div>
                 <div class="formElement">
-                    <label style="margin-right: 9em;">Resting Electrographic Result: </label>
-                    <select name="ecgResults" id="chestPainType" x-model="restecg_CAD">
+                    <label style="margin-right: 13.9em;">Serum Cholesterol: </label><input type="text" x-model="chol_CAD" x-model="Cholesterol" id="Cholesterol" placeholder="e.g 321">
+                </div>
+                <div class="formElement">
+                    <label style="margin-right: 8em;">Resting Electrographic Result: </label>
+                    <select name="ecgResults" id="RestingECG" x-model="restecg_CAD" x-model="RestingECG">
+                        <option value="">
+                            Select Option
+                        </option>
                         <option value="2">
                             Normal
                         </option>
@@ -131,11 +147,11 @@
                     </select>
                 </div>
                 <div class="formElement">
-                    <label>ST depression induced by exercise relative to rest: </label><input type="text" x-model="oldpeak_CAD">
+                    <label style="margin-right: 0.3em;">ST depression induced by exercise relative to rest: </label><input type="text" x-model="oldpeak_CAD" x-model="STDepression" id="STDepression">
                 </div>
                 <div class="formElement">
-                    <label>Number of Major Vessels Colored by Fluoroscopy: </label>
-                    <select name="vesselsColoredByFluoroscopy" id="chestPainType" x-model="ca_CAD">
+                    <label style="margin-right: 9.6em;">Number of Major Vessels Colored by Fluoroscopy: </label>
+                    <select name="vesselsColoredByFluoroscopy" x-model="ca_CAD" x-model="Fluoroscopy"  id="Fluoroscopy">
                         <option value="0">
                             0
                         </option>
@@ -150,25 +166,14 @@
                         </option>
                     </select>
                 </div>
-                <div class="formElement">
-                    <label style="margin-right: 16.7em;">Defect Type: </label>
-                    <select name="defectType" id="defectType" x-model="thal_CAD">
-                        <option value="1">
-                            Normal
-                        </option>
-                        <option value="0">
-                            Fixed
-                        </option>
-                        <option value="2">
-                            Reversible Defect
-                        </option>
-                    </select>
-                </div>
             </div>
             <div class="item1">
                 <div class="formElement">
-                    <label style="margin-right: 16em;"> Sex: </label>
-                    <select name="sex" id="sex" x-model="sex_CAD">
+                    <label style="margin-right: 18em;"> Sex: </label>
+                    <select name="sex" id="Gender" x-model="sex_CAD" x-model="Gender">
+                        <option value="">
+                            Select Option
+                        </option>
                         <option value="1">
                             Male
                         </option>
@@ -178,8 +183,11 @@
                     </select>
                 </div>
                 <div class="formElement">     
-                    <label style="margin-right: 10.4em;">Chest Pain Type: </label>
-                    <select name="chestPainType" id="chestPainType" x-model="cp_CAD">
+                    <label style="margin-right: 10em;">Chest Pain Type: </label>
+                    <select name="ChestPainType" id="ChestPainType" x-model="cp_CAD" x-model="ChestPainType">
+                        <option value="">
+                            Select Option
+                        </option>
                         <option value="3">
                             Typical Type 1
                         </option>
@@ -195,14 +203,17 @@
                     </select>
                 </div>
                 <div class="formElement">         
-                    <label style="margin-right: 8.6em;"> Fasting Blood Sugar: </label><input type="text" x-model="fbs_CAD">
+                    <label style="margin-right: 6em;"> Fasting Blood Sugar: </label><input type="text" x-model="fbs_CAD" x-model="FastingBPS" id="FastingBPS">
                 </div>
                 <div class="formElement">     
-                    <label style="margin-right: 3.8em;">Maximum Heart Rate Achieved: </label><input type="text" x-model="thalach_CAD">
+                    <label style="margin-right: 1.2em;">Maximum Heart Rate Achieved: </label><input type="text" x-model="thalach_CAD" x-model="MaxHR" id="MaxHR" placeholder="e.g 70">
                 </div>
                 <div class="formElement">  
-                    <label style="margin-right: 6.5em;">Exercise Induced Angina: </label>
-                    <select name="exercisedInducedAngina" id="exercisedInducedAngina" x-model="exang_CAD">
+                    <label style="margin-right: 8.6em;">Exercise Induced Angina: </label>
+                    <select name="exercisedInducedAngina" id="ExerciseAngina" x-model="exang_CAD" x-model="ExerciseAngina">
+                        <option value="">
+                            Select Option
+                        </option>
                         <option value="1">
                             Yes
                         </option>
@@ -212,8 +223,11 @@
                     </select>
                 </div>
                 <div class="formElement">
-                    <label>Slope of the peak exercise ST segment: </label>
-                    <select name="slope" id="slope" x-model="slope_CAD">
+                    <label style="margin-right: 2.3em;">Slope of the peak exercise ST segment: </label>
+                    <select name="slope" id="slope" x-model="slope_CAD" x-model="ST_Slope" id="ST_Slope">
+                        <option value="">
+                            Select Option
+                        </option>
                         <option value="2">
                             Unsloping
                         </option>
@@ -225,17 +239,83 @@
                         </option>
                     </select>
                 </div>
+                <div class="formElement">
+                    <label style="margin-right: 12.9em;">Defect Type: </label>
+                    <select name="defectType" id="defectType" x-model="thal_CAD" x-model="defectType">
+                        <option value="">
+                            Select Option
+                        </option>
+                        <option value="1">
+                            Normal
+                        </option>
+                        <option value="0">
+                            Fixed
+                        </option>
+                        <option value="2">
+                            Reversible Defect
+                        </option>
+                    </select>
+                </div>
             </div>   
         </div>
         <div>
-            <button class="buttons" @click="testCAD(); on()">
-                <a>ANALYSE DATA</a>
+            <button class="button" @click="testCAD(); on()">
+                ANALYSE DATA
             </button>
         </div>
 
         <script>
+            const userAge = document.getElementById('user-age');
+            const RestingBP = document.getElementById('RestingBP');
+            const Gender=document.getElementById('Gender');
+            const Cholesterol=document.getElementById('Cholesterol');
+            const RestingECG = document.getElementById('RestingECG');
+            const Fluoroscopy = document.getElementById('Fluoroscopy');
+            const defectType = document.getElementById('defectType');
+            const chestPainType = document.getElementById('ChestPainType');
+            const FastingBPS = document.getElementById('FastingBPS');
+            const MaxHR = document.getElementById('MaxHR');
+            const ExerciseAngina = document.getElementById('ExerciseAngina');
+            const ST_Slope = document.getElementById('ST_Slope');
+            const Oldpeak = document.getElementById('Oldpeak');
+            const Patient_ID =document.getElementById('Patient_ID')
+
             function on() {
                 document.getElementById("overlay").style.display = "block";
+
+                console.log(userAge.value);
+                console.log(RestingBP.value);
+                console.log(Gender.value);
+                console.log(Cholesterol.value);
+                console.log(RestingECG.value);
+                console.log(Fluoroscopy.value);
+                console.log(defectType.value);
+                // console.log(ChestPainType.value);
+                console.log(FastingBPS.value);
+                console.log(MaxHR.value);
+                console.log(ExerciseAngina.value);
+                console.log(ST_Slope.value);
+                console.log(Oldpeak.value);
+                console.log(Patient_ID.value);
+
+                document.getElementById("overlay").style.display = "block";
+                axios.post('/api/add/userCAD', {
+                    Age: userAge.value,
+                    RestingBP:RestingBP.value,
+                    Gender:Gender.value,
+                    Cholesterol: Cholesterol.value,
+                    RestingECG: RestingECG.value,
+                    Fluoroscopy: Fluoroscopy.value,
+                    defectType: defectType.value,
+                    chestPainType: chestPainType.value,
+                    FastingBPS: FastingBPS.value,
+                    MaxHR: MaxHR.value,
+                    ExerciseAngina: ExerciseAngina.value,
+                    ST_Slope: ST_Slope.value,
+                    Oldpeak: Oldpeak.value,
+                    Patient_ID:Patient_ID.value,
+                })
+
                 window.setTimeout(function(){
                     window.location.href = "CAD_result.html";
                 }, 10000);

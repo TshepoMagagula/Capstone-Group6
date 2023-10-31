@@ -57,19 +57,14 @@
                         style="height: 250px; width: 30em" >
                     </div>
                     <div class="col">
+                        <h3>Patient Results</h3>
                         <p>According to the Machine Learning Model's result (which is 0)
                         This patient is negative for Heart Failure (meaning he/ she 
-                        does not have the disease). However according to the patients
-                        medical data  provided, he shows concerning levels of creatinine_phosphokinase
-                         and serum_creatinin, which might be suggestive of other heart conditions</p>
-                        <p>
-                            Below are some suggestive measures and natural herbs that can be used to aid
-                            the rehabilitation process of the patient(without interfering with the Doctors prescribed
-                            treatment)
-                        </p> 
+                        does not have the disease).
+                        </p>
                     </div>   
                 </div>
-            </div>
+                <hr>
             <hr class="result-divider">
             <div class="result-interpretation" x-show="localStorage['modelResult_HF'] == 1">
                 <h2>RESULT INTERPRETATION</h2>
@@ -94,9 +89,63 @@
                         </p> 
                     </div>   
                 </div>
-                <h2>Suggestions</h2>
+                <hr>
+                <div class="row">
+                    <h2>Suggestions</h2>
+                    <p>Below are some supplements and foods that can help patients deal with their Heart Failure more effectively (without acting contrary to the standard treament offered by the Doctor)</p>
+                    <div class="col">
+                        <h3>Coenzyme Q10</h3>
+                        <p>
+                            Coenzyme Q10: #1 Supplement for Heart Failure patients with congestive heart failure.
+                            Normally, CoQ10 concentrations in the heart muscle are 10 times greater than in any other organ. In patients with congestive heart failure, however, the heart cells are deficient in CoQ10, and the energy-starved heart cannot pump enough blood to meet the body’s needs.
+                            Supplemental CoQ10 can help. Clinical studies show that 87% of patients with congestive heart failure improved after taking CoQ10 for six months. For some, the gentle, natural boost to their energy-starved hearts brought dramatic improvements.
+                        </p>
+                    </div>
+                    <div class="col">
+                        <img src="./image/coenzyme.png" alt="Coenzyme Q10 Image"
+                        style="height: 250px; width: 30em" >
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <img src="./image/D-ribose.png" alt="D-Ribose Image"
+                        style="height: 250px; width: 30em" >
+                    </div>
+                    <div class="col-sm-12 col-lg-6">
+                        <h3>D-Ribose</h3>
+                        <p>
+                            D-ribose is a naturally occurring sugar that is a structural component of ATP.
+                            In congestive heart failure, which is marked by cellular energy deficiency, the reduction in ATP production is directly linked with decreased mitochondrial levels of D-ribose.
+                            Boosting levels of this essential compound with supplemental D-ribose helps to regenerate much-needed ATP and enables the heart muscles to produce energy faster. Studies have shown that 
+                            daily oral D-ribose significantly improved heart function, exercise endurance, and quality of life in patients with heart failure.
+                        </p>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12 col-lg-6">
+                        <h3>Foods</h3>
+                        <p>
+                            Here are several food sources that are beneficial to Heart Failure patients:
+                            <b>Salmon, Sardines, Mackerel, Pork, Chicken Liver, Beef Heart, Anchovy, Mackerel,
+                                Cauliflower, Brussels Sprouts, Broccoli, Cucumber, Fresh Vegetable Juice, Spinach, Kale,
+                                Swiss chard, Melon, Avocado, Peach, Apple
+                            </b>
+                        </p>
+                    </div>
+                    <div class="col">
+                        <img src="./image/Diet.png" alt="Healthy Foods"
+                        style="height: 250px; width: 30em" >
+                    </div>
+                </div>
             </div>
         </div>
+        <br>
+        <section class="footer">
+            Copyright © Group 6 2023
+        </section>
         <script>
             if(localStorage['modelResult_HF'] == 1) {
                 document.getElementById("resultP").innerHTML = 
