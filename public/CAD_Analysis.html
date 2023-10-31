@@ -296,7 +296,7 @@
                 console.log(Oldpeak.value);
                 console.log(Patient_ID.value);
 
-                document.getElementById("overlay").style.display = "block";
+                
                 axios.post('/api/add/userCAD', {
                     Age: userAge.value,
                     RestingBP:RestingBP.value,
@@ -315,7 +315,7 @@
                 })
 
             function on() {
-                
+                document.getElementById("overlay").style.display = "block";
                 window.setTimeout(function(){
                     window.location.href = "CAD_result.html";
                 }, 10000);
