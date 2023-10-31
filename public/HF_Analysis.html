@@ -40,7 +40,7 @@
 <hr>
 <h2>INSERT NEW PATIENT TEST DATA</h2>
 <hr>
-<div class="main" x-data="heartBeatBackEnd">
+<div class="main">
   <div class="grid-container">
     <div class="item1">
         <div class="formElement">
@@ -48,7 +48,7 @@
         </div>
         <div class="formElement">
             <label style="margin-right: 23em;">Anaemia: </label>
-            <select name="anaemia"  x-model="anaemia_HF" x-model="" id="RestingECG">
+            <select name="anaemia"  x-model="anaemia_HF" >
               <option value="">
                   Select Option
               </option>
@@ -61,11 +61,11 @@
             </select>
         </div>
         <div class="formElement">
-            <label style="margin-right: 10.5em;">Creatinine_Phosphokinase: </label><input x-model="creatinine_phosphokinase_HF" x-model="Cholesterol" id="Cholesterol" type="text">
+            <label style="margin-right: 10.5em;">Creatinine_Phosphokinase: </label><input x-model="creatinine_phosphokinase_HF" id="Cholesterol" type="text">
         </div>
         <div class="formElement">
             <label style="margin-right: 23em;">Diabetes: </label>
-            <select name="diabetes" x-model="diabetes_HF" x-model="RestingECG" id="RestingECG">
+            <select name="diabetes" x-model="diabetes_HF" id="RestingECG">
                 <option value="">
                     Select Option
                 </option>
@@ -78,11 +78,11 @@
             </select>
         </div>
         <div class="formElement">
-            <label style="margin-right: 14.7em;">Ejection_Fraction: </label><input x-model="ejection_fraction_HF" x-model="STDepression" id="STDepression" type="text">
+            <label style="margin-right: 14.7em;">Ejection_Fraction: </label><input x-model="ejection_fraction_HF" id="STDepression" type="text">
         </div>
         <div class="formElement">
             <label style="margin-right: 17.3em;">High_Blood_Pressure: </label>
-            <select name="highBloodPressure" x-model="high_blood_pressure_HF" x-model="Fluoroscopy"  id="Fluoroscopy">
+            <select name="highBloodPressure" x-model="high_blood_pressure_HF"  id="Fluoroscopy">
                 <option value="">
                   Select Option
                 </option>
@@ -111,17 +111,17 @@
         </select>
     </div>
       <div class="formElement">
-        <label style="margin-right: 17em;">Platelets: </label><input  x-model="platelets_HF" x-model="" id="platelets" type="text">
+        <label style="margin-right: 17em;">Platelets: </label><input  x-model="platelets_HF" id="platelets" type="text">
     </div>
         <div class="formElement">
-            <label style="margin-right: 13.2em;"> Serum_Creatinine:</label><input x-model="serum_creatinine_HF" x-model="" id="serum_creatinine_HF" type="text">
+            <label style="margin-right: 13.2em;"> Serum_Creatinine:</label><input x-model="serum_creatinine_HF" id="serum_creatinine_HF" type="text">
         </div>
         <div class="formElement">
-            <label style="margin-right: 14.2em;">Serum_Sodium:  </label><input x-model="serum_sodium_HF" x-model="" id="serum_sodium_HF" type="text">
+            <label style="margin-right: 14.2em;">Serum_Sodium:  </label><input x-model="serum_sodium_HF" id="serum_sodium_HF" type="text">
         </div>
         <div class="formElement">
             <label style="margin-right: 21.8em;">Smoking:</label>
-            <select name="smoking" x-model="smoking_HF" x-model=""  id="smoking">
+            <select name="smoking" x-model="smoking_HF" id="smoking">
               <option value="">
                   Select Option
               </option>
