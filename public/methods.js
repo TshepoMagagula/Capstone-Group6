@@ -141,7 +141,7 @@ document.addEventListener("alpine:init", () => {
             login() {
                 
                 localStorage['occupation'] = this.occupation;
-                window.location.href = "index.html";
+                window.location.href = "home.html";
             },
             
             logout() {
