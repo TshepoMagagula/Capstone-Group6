@@ -96,7 +96,7 @@ Open `public/index.html` in a browser.
 - **Machine Learning**: Scikit-learn, Pandas, NumPy
 
 ## Contributors
-- Tshepo Magagula (@Tshepo_Magagula)
+- Tshepo Magagula, Sabelo Bhengu, Noon Akoud
 
 ## License
 This project is licensed under the MIT License.
